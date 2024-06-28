@@ -53,7 +53,7 @@ const userSchema = new Schema(
 );
 
 //here pre hook is used to run the middleware everytime a save is run
-// it makes use of bcrypt.hash to hash the password  and run it thorugh 10 rounds of hashing
+// it makes use of bcrypt.hash to hash the password  and run it thorugh 10 rounds of hashing usually called salting
 //we also wrote logic that password is hashed only if the password is modified
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
